@@ -1,26 +1,22 @@
 import re
 
 class MagicCutter:
-  def __init__(self, word = None, text = None):
+  """
+  Tool to use select text elements to use in data science.
+  """
+  def __init__(self, text = None, word = None):
     self.__text = text
     self.__word = self.find_word(word)
-    self.__phrases = self.find_phrases()
-
-  def text(self):
-    return self.__text
-
-  def word(self):
-    return self.__word.group
-  
-  def phrases(self):
-    return self.__phrases
 
   def find_word(self, word):
     return re.search(word, self.__text)
 
   def find_phrases(self):
+    """
+    List all phrases of the a text.
+    """
     phrases = []
-    splitted_phrases = re.compile('[A-Z]?.*?\.').finditer(self.text)
+    splitted_phrases = re.compile('[A-Z]?.*?\.').finditer(self.__text)
 
     for phrase in splitted_phrases:
       if(
@@ -31,10 +27,13 @@ class MagicCutter:
         
     return phrases
 
-  def title(self):
-    pass
+  def find_title(self):
+    """
+    Return probable title string.
+    """
+    return re.compile('[A-Z]?.*?\.').findall(self.__text)[0]
 
-  def matter(self):
+  def discover_matter(self):
     pass
 
   def what_text_say(self):

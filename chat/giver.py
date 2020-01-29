@@ -1,0 +1,2 @@
+class Giver:
+  pass

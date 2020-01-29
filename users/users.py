@@ -1,12 +1,12 @@
 class User:
-  def find(self):
+  def validate(self, user: str):
     pass
 
-  def create(self):
+  def create(self, user: list):
     pass
 
-  def update(self):
+  def update(self, user: list):
     pass
 
-  def delete(self):
+  def delete(self, id: int):
     pass

@@ -1,9 +1,12 @@
+from chat.messenger import Messenger as messenger
+from chat.giver import Giver as giver
+
 class Guest:
   def __init__(self, guest = None):
-    self.guest = guest
+    self.__guest = guest
 
   def send_message(self, messenger, message):
-    messenger.handle_message(message)
+    messenger.handle_message(message, self.__guest)
   
   def choice_struct(self, giver):
-    giver.choice_struct()
+    giver.choice_struct().take()
